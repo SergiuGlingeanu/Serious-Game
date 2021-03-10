@@ -18,10 +18,14 @@ public class Money : MonoBehaviour
     public GameObject buyCow;
     public GameObject buyShed;
 
+    public GameObject sellCow;
+    public GameObject sellShed;
+
     void Start()
     {
         cows = 1;
         maxCows = 20;
+        sheds = 1;
     }
 
     void Update()
@@ -33,11 +37,9 @@ public class Money : MonoBehaviour
         shedCount.GetComponent<Text>().text = "Sheds: " + sheds.ToString("F0");
         maxCowCount.GetComponent<Text>().text = "Max Cows: " + maxCows.ToString("F0");
 
-        if (money <= 0) {money = 0;}
-        if (cows >= maxCows) {}
     }
 
-    public void Cow()
+    public void BuyCow()
     {
         if (money >= 10 && cows < maxCows)
         {
@@ -46,13 +48,32 @@ public class Money : MonoBehaviour
         }
     }
 
-    public void Shed()
+    public void BuyShed()
     {
         if (money >= 100)
         {
             money -= 100;
             sheds += 1;
             maxCows += 20;
+        }
+    }
+
+    public void SellCow()
+    {
+        if (cows > 1)
+        {
+            cows -= 1;
+            money += 5;
+        }
+    }
+
+    public void SellShed()
+    {
+        if (sheds > 1 && cows <= maxCows - (sheds - 1) *20)
+        {
+            sheds -= 1;
+            maxCows -= 20;
+            money += 50;
         }
     }
 }
