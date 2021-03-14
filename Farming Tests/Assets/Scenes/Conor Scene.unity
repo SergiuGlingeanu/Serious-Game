@@ -243,7 +243,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -401,7 +401,7 @@ RectTransform:
   m_Children:
   - {fileID: 612519137}
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -838,7 +838,7 @@ RectTransform:
   m_Children:
   - {fileID: 1735544357}
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1206,7 +1206,7 @@ RectTransform:
   m_Children:
   - {fileID: 1738368377}
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1399,12 +1399,12 @@ RectTransform:
   - {fileID: 1057007221}
   - {fileID: 1465655726}
   - {fileID: 1432647090}
+  - {fileID: 106909506}
   - {fileID: 193787506}
   - {fileID: 1134463064}
   - {fileID: 2081534055}
   - {fileID: 768179166}
   - {fileID: 1868427720}
-  - {fileID: 106909506}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1761,7 +1761,7 @@ RectTransform:
   m_Children:
   - {fileID: 973072150}
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1980581517}
+      - m_Target: {fileID: 1980581518}
         m_MethodName: BuyPrecaution
         m_Mode: 1
         m_Arguments:
@@ -1907,24 +1907,17 @@ MonoBehaviour:
   cows: 0
   sheds: 0
   maxCows: 0
-  precautions: 0
-  maxPrecautions: 5
-  accidentChance: 0
   cowCost: 10
   shedCost: 100
-  precautionsCost: 15
   moneyCount: {fileID: 192429176}
   cowCount: {fileID: 341055378}
   shedCount: {fileID: 1057007220}
   maxCowCount: {fileID: 1465655725}
-  precauotionCount: {fileID: 1432647089}
-  chancesOfAccident: {fileID: 106909505}
   buyCow: {fileID: 193787505}
   buyShed: {fileID: 1134463063}
   buyPrecaution: {fileID: 1868427719}
   sellCow: {fileID: 2081534051}
   sellShed: {fileID: 768179165}
-  accidentMaker: {fileID: 1980581515}
 --- !u!114 &1980581518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,7 +1933,13 @@ MonoBehaviour:
   chance: 50
   timeStamp: 0
   coolDown: 30
+  precautions: 0
+  maxPrecautions: 0
+  accidentChance: 0
+  precautionsCost: 15
   Shop: {fileID: 1980581515}
+  chancesOfAccident: {fileID: 106909505}
+  precautionCount: {fileID: 1432647089}
 --- !u!1 &2081534051
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,7 +2063,7 @@ RectTransform:
   m_Children:
   - {fileID: 835791461}
   m_Father: {fileID: 1231718550}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
