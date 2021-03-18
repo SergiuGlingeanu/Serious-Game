@@ -1870,6 +1870,7 @@ GameObject:
   - component: {fileID: 1980581516}
   - component: {fileID: 1980581517}
   - component: {fileID: 1980581518}
+  - component: {fileID: 1980581519}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1940,6 +1941,29 @@ MonoBehaviour:
   Shop: {fileID: 1980581515}
   chancesOfAccident: {fileID: 106909505}
   precautionCount: {fileID: 1432647089}
+--- !u!114 &1980581519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980581515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ada775f507ba714ea155aa51e1d60da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  structureInfo:
+    name: 
+    type: 1
+    cost: 0
+    prefab: {fileID: 0}
+    stats:
+      slurryStorage: 0
+      cowStorage: 0
+      moneyGeneration: 0
+      accidentRatePerAccidentInterval: 0
+      precautions: 
 --- !u!1 &2081534051
 GameObject:
   m_ObjectHideFlags: 0
