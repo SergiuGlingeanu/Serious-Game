@@ -35,11 +35,9 @@ public class Money : MonoBehaviour
 
     void Update()
     {
-        if (money <= 0) { money = 0;}
+        ShopManager.money += Time.deltaTime;
 
-        money += Time.deltaTime * cows;
-
-        moneyCount.GetComponent<Text>().text = "Money: €" + money.ToString("F0");
+        moneyCount.GetComponent<Text>().text = "Money: €" + ShopManager.money.ToString("F0");
         cowCount.GetComponent<Text>().text = "Cows: " + cows;
         shedCount.GetComponent<Text>().text = "Sheds: " + sheds;
         maxCowCount.GetComponent<Text>().text = "Max Cows: " + maxCows;

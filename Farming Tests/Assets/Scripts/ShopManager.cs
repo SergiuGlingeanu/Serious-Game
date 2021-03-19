@@ -4,45 +4,74 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    [Header ("Structures")]
 
-    public StructureInfo structureInfo;
+    public StructureInfo[] structures;
+    public static float money;
 
-    [System.Serializable]
-    public class StructureInfo
+    private void OnEnable()
     {
-        public string name;
-        public StructureType type;
-        public uint cost;
-        public GameObject prefab;
-        public Stats stats;
+        money = 100;
     }
 
-    [System.Serializable]
-    public struct Stats
+    public void PurchaseStructure(int index)
     {
-        public byte slurryStorage;
-        public byte cowStorage;
-        public byte moneyGeneration;
-        public byte accidentRatePerAccidentInterval;
-        public PrecautionType[] precautions;
+        if (index < structures.Length)
+        {
+            StructureInfo structure = structures [index];
+
+            if (CanBuy(structure))
+            {
+                money -= structure.cost;
+                Instantiate(structure.prefab);
+            }
+        }
     }
 
-    [System.Serializable]
-    public enum StructureType
+    private bool CanBuy(StructureInfo structure)
     {
-        SlurryTank,
-        Shed,
-        WalledShed,
-        FarmHouse
+        if (structure == null) return false;
+        return money >= structure.cost;
     }
-
-    [System.Serializable]
-    public enum PrecautionType
-    {
-        Fence,
-        Signs,
-        StrongerFence,
-        EvenStronerFence
-    }
-
 }
+
+[System.Serializable]
+public class StructureInfo
+{
+    public string name;
+    public StructureType type;
+    public int cost;
+    public GameObject prefab;
+    public Stats stats;
+}
+
+[System.Serializable]
+public struct Stats
+{
+    public byte slurryStorage;
+    public byte slurryProduction;
+    public byte cowStorage;
+    public byte moneyGeneration;
+    public byte accidentRatePerAccidentInterval;
+    public PrecautionType[] precautions;
+}
+
+[System.Serializable]
+public enum StructureType : byte
+{
+    SlurryTank,
+    Shed,
+    WalledShed,
+    Cows,
+    FarmHouse
+}
+
+[System.Serializable]
+public enum PrecautionType : byte
+{
+    Fence,
+    Signs,
+    StrongerFence,
+    EvenStrongerFence
+}
+
