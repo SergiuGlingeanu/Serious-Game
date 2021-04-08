@@ -836,13 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d32aba67109ff42a09740230401948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1791469361}
-  zoomLimits: {x: 4, y: 22}
-  rotationAngle: 90
-  desktopPanSensitivity: 45.1
-  desktopZoomSensitivity: 5
-  mobilePanSensitivity: 2
-  mobileZoomSensitivity: 0.1
 --- !u!1 &1160385629
 GameObject:
   m_ObjectHideFlags: 0
