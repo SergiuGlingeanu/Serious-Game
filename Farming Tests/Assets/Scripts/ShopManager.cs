@@ -63,6 +63,9 @@ public enum StructureType : byte
     Shed,
     WalledShed,
     Cows,
+    Tractor,
+    Field,
+    MilkingParlour,
     FarmHouse
 }
 
@@ -70,8 +73,12 @@ public enum StructureType : byte
 public enum PrecautionType : byte
 {
     Fence,
-    Signs,
     StrongerFence,
-    EvenStrongerFence
+    OldSigns,
+    NewSigns,
+    Maintenance,
+    GroovedFlooring,
+    TractorLicense,
+    PPE
 }
 
