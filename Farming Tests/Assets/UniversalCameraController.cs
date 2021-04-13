@@ -23,21 +23,24 @@ public class UniversalCameraController : MonoBehaviour
     private Touch _initTouch;
     private Touch _lastTouch;
     private Camera _camera;
+    private Camera _uiCamera;
     private Vector2 _axes;
 
     private void OnEnable()
     {
         _camera = GetComponent<Camera>();
+        _uiCamera = GetComponentsInChildren<Camera>()[1];
         if (!_camera.orthographic)
         {
             愛.Print($"Specified Camera is not marked as Ortographic. This setting will be forced!", 愛.LogLevel.Warning);
             _camera.orthographic = true;
         }
-        Debug.Log(GameSettings.kInitialOrtographicSize);
-        _camera.orthographicSize = GameSettings.kInitialOrtographicSize;
+        //Debug.Log(GameSettings.kInitialOrtographicSize);
+        _camera.orthographicSize = GameSettings.kInitialOrthographicSize;
+
         _internalZoomValue = _camera.orthographicSize;
     }
-    void Update()
+    public void LateUpdate()
     {
         _axes = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         if (Input.GetKey(KeyCode.LeftAlt) && Input.GetMouseButton(2) && !GameSettings.panBlocked) //Desktop Pan
@@ -45,6 +48,7 @@ public class UniversalCameraController : MonoBehaviour
             //transform.position -= new Vector3(_axes.y, 0f, _axes.x) * desktopPanSensitivity * Time.deltaTime;
             transform.position -= transform.right * _axes.x * desktopPanSensitivity * Time.deltaTime;
             transform.position -= transform.up * _axes.y * desktopPanSensitivity * Time.deltaTime;
+            //follower.transform.position = transform.position;
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -58,6 +62,8 @@ public class UniversalCameraController : MonoBehaviour
 
         _internalZoomValue = Mathf.Clamp(_internalZoomValue, zoomLimits.x, zoomLimits.y);
         _camera.orthographicSize = _internalZoomValue;
+        _uiCamera.orthographicSize = _internalZoomValue;
+        //follower.orthographicSize = _internalZoomValue;
     }
 
     private Vector2 _lastPanTouchPosition;
@@ -76,7 +82,7 @@ public class UniversalCameraController : MonoBehaviour
             else if (_initTouch.fingerId == _lastFingerId && _initTouch.phase == TouchPhase.Moved) {
                 Vector3 movementDelta = _camera.ScreenToViewportPoint(_lastPanTouchPosition - _initTouch.position);
                 transform.Translate(new Vector3(movementDelta.x * mobilePanSensitivity, movementDelta.y * mobilePanSensitivity, 0f));
-
+                //follower.transform.position = transform.position;
                 _lastPanTouchPosition = _initTouch.position;
             }
             //Vector2 delta = _initTouch.deltaPosition;
