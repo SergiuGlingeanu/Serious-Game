@@ -7,9 +7,17 @@ public class Billboard : MonoBehaviour
     public RotationMode rotationMode;
     public bool flip;
 
+    public bool forceSpecificRotation;
+    public Vector3 rotation;
+
     private void Update() => ApplyBillboardEffect();
 
     public void ApplyBillboardEffect() {
+        if (forceSpecificRotation) {
+            transform.eulerAngles = rotation;
+            return;
+        }
+
         Vector3 position = Camera.main.transform.position;
         switch (rotationMode)
         {

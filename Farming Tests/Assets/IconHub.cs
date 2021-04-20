@@ -7,7 +7,7 @@ using Tom.Utility;
 public class IconHub : MonoBehaviour
 {
     public static IconHub instance;
-    private void Awake() => instance = Utilities.CreateSingleton(instance, this) as IconHub;
+    private void Awake() => instance = Tom.Utility.Utilities.CreateSingleton(instance, this) as IconHub;
 
     [Header("References")]
     public Texture2D[] icons; //Enum order must be kept!

@@ -36,10 +36,10 @@ public class IconHubInspector : Editor
                 byte[] iconBytes = iconImage.EncodeToPNG();
                 string path = System.IO.Path.Combine(Application.dataPath, "Sprites/Icons", $"{(string.IsNullOrEmpty(hub.fileName) ? $"{System.DateTime.Now}.png" : $"{hub.fileName}.png")}");
                 System.IO.File.WriteAllBytes(path, iconBytes);
-                Utilities.Print($"Written Icon File to [{path}].", Utilities.LogLevel.Info);
+                Debug.Log($"Written Icon File to [{path}].");
             }
             catch (System.Exception e) {
-                Utilities.Print($"Failed to write Icon File: [{e.Message}]", Utilities.LogLevel.Error);
+                Debug.LogError($"Failed to write Icon File: [{e.Message}]");
             }
             if (Application.isPlaying)
                 Destroy(iconImage);

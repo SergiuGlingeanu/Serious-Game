@@ -118,7 +118,6 @@ MonoBehaviour:
     y: 9
   parentTile:
     status: 0
-    occupiedSize: 0
     positionOnGrid: {x: 0, y: 0}
     worldPosition: {x: 0, y: 0, z: 0}
   sellable: 1
@@ -128,8 +127,12 @@ MonoBehaviour:
     slurryProduction: 0
     cowStorage: 0
     moneyGeneration: 0
-    accidentRatePerAccidentInterval: 0
+    accidentRatePerAccidentInterval: 20
     precautions: 
+  currentTile:
+    status: 0
+    positionOnGrid: {x: 0, y: 0}
+    worldPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &3890152836190510018
 PrefabInstance:
   m_ObjectHideFlags: 0

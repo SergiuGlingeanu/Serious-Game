@@ -107,14 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f67f22767caa746be6e7fe9ff126d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 5
+  type: 7
   id: 0
   size:
     x: 8
     y: 6
   parentTile:
     status: 0
-    occupiedSize: 0
     positionOnGrid: {x: 0, y: 0}
     worldPosition: {x: 0, y: 0, z: 0}
   sellable: 0
@@ -126,6 +125,10 @@ MonoBehaviour:
     moneyGeneration: 0
     accidentRatePerAccidentInterval: 0
     precautions: 
+  currentTile:
+    status: 0
+    positionOnGrid: {x: 0, y: 0}
+    worldPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &65098899
 Animator:
   serializedVersion: 3

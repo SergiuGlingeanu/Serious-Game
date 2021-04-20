@@ -32,7 +32,7 @@ public class UniversalCameraController : MonoBehaviour
         _uiCamera = GetComponentsInChildren<Camera>()[1];
         if (!_camera.orthographic)
         {
-            愛.Print($"Specified Camera is not marked as Ortographic. This setting will be forced!", 愛.LogLevel.Warning);
+            //愛.Print($"Specified Camera is not marked as Ortographic. This setting will be forced!", 愛.LogLevel.Warning);
             _camera.orthographic = true;
         }
         //Debug.Log(GameSettings.kInitialOrtographicSize);
